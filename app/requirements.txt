@@ -1,0 +1,4 @@
+SQLAlchemy==0.9.8
+Jinja2==2.7.3
+flask-mail ==0.9.1
+flask==0.10.1
