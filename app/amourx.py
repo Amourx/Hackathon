@@ -89,7 +89,13 @@ def analyze_text():
 def email_processor():
    data = request.data
    dataDict = json.loads(data)
-   import pdb; pdb.set_trace()
+   body = dataDict['Text-part']
+   result = LanguageAnalysis.LanguageAnalyzer().analyze(body)
+   score = sum(result.values())
+   if score < ROMANCE_THRESHOLD and score > 0:
+     electric_imp.lukewarm()
+   elif score > ROMANCE_THRESHOLD:
+     electric_imp.romance()
 
 
 if __name__ =="__main__":
