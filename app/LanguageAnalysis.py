@@ -20,6 +20,7 @@ NEGATIVEWORDDICT = { # k: word, v: word score
    'WITHOUT': -1,
    'DON\'T' : -1,
    'WON\'T' : -1,
+   'CAN\'T' : -1,
    'EVIL'   : -1,
 
 }
@@ -48,8 +49,11 @@ class LanguageAnalyzer:
             if word.upper() in POSITIVEWORDDICT:
                loveScore[sentenceNum] += POSITIVEWORDDICT.get(word.upper())
             elif word.upper() in NEGATIVEWORDDICT:
-               loveScore[sentenceNum] += NEGATIVEWORDDICT.get(word.upper())
-               loveScore[sentenceNum] *= -1
+               if loveScore[sentenceNum] < 0:
+                  loveScore[sentenceNum] *= -1
+                  loveScore[sentenceNum]+= abs(NEGATIVEWORDDICT.get(word.upper()))
+               else:
+                  loveScore[sentenceNum] += NEGATIVEWORDDICT.get(word.upper())
 
       return loveScore
 
