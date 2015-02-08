@@ -6,10 +6,13 @@ from flask import Flask, session, request, render_template, flash, redirect, url
 from sqlalchemy import desc
 
 import LanguageAnalysis
+import electric_imp
 
 app = Flask(__name__)
 
 ##############     USER SECTION     ##############################
+
+ROMANCE_THRESHOLD = 5
 
 
 @app.route("/")
@@ -26,6 +29,12 @@ def analyze_page():
 def analyze_text():
     text = request.form['text']
     result = LanguageAnalysis.LanguageAnalyzer().analyze(text)
+    score = sum(result.values())
+    if score < ROMANCE_THRESHOLD and score > 0:
+        electric_imp.lukewarm()
+    elif score > ROMANCE_THRESHOLD:
+        electric_imp.romance()
+
     return render_template('analyze.html', result=result)
 
 
