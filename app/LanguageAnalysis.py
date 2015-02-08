@@ -35,15 +35,16 @@ class LanguageAnalyzer:
 
       pass
 
-   def run(self, filename):
+   def run_from_file(self, filename):
       with open(filename, 'rb') as analysisFile:
-         lines = analysisFile.readlines()
+         fileString = analysisFile.read()
+      self.analyze(fileString)
 
-      fileString = ''.join(lines)
-      fileString = fileString.split('.')
+   def analyze(self, message):
+      message = message.split('.')
       loveScore = defaultdict(int) # k: sentence number, v: sentence score
 
-      for sentenceNum, sentence in enumerate(fileString):
+      for sentenceNum, sentence in enumerate(message):
          for word in sentence.split(' '):
             if word.upper() in POSITIVEWORDDICT:
                loveScore[sentenceNum] += POSITIVEWORDDICT.get(word.upper())
@@ -54,12 +55,13 @@ class LanguageAnalyzer:
                else:
                   loveScore[sentenceNum] += NEGATIVEWORDDICT.get(word.upper())
 
-      print loveScore
+      return loveScore
 
 
 def __main__():
-   mainClass = LanguageAnalyzer()
-   mainClass.run('test.txt')
+    mainClass = LanguageAnalyzer()
+    score = mainClass.run_from_file('test.txt')
+    print score
 
 
 if __name__ == '__main__': __main__()
