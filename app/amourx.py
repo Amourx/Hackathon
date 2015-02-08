@@ -15,10 +15,17 @@ app = Flask(__name__)
 ROMANCE_THRESHOLD = 5
 
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def index():
     return render_template("home.html")
 
+
+@app.route("/", methods=['POST'])
+def ajax_submit():
+    email_addr = request.form['email']
+    email_body = request.form['body']
+
+    return flask.jsonify({'status': 'OK'})
 
 @app.route('/analyze', methods=['GET'])
 def analyze_page():
