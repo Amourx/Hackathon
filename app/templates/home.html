@@ -4,14 +4,14 @@
 	@font-face{font-family: "handwritten"; src: url("fonts/Calligraffiti.ttf");}
 	body{background-color:#3D0E21;text-align: center;}
 	textarea{resize: none}
-	.head{height: 108px; background-image: url("banner.png"); background-repeat: repeat-x; padding-bottom: 40px}
-	.logo{width: 179px; height: 79px; background-image: url("logo.png"); vertical-align: middle; margin: auto;}
+	.head{height: 108px; background-image: url("/static/images/banner.png"); background-repeat: repeat-x; padding-bottom: 40px}
+	.logo{width: 179px; height: 79px; background-image: url("/static/images/logo.png"); vertical-align: middle; margin: auto;}
 	.emailBoxDiv{}		
-	.emailBox{height: 44px; width: 480px; background-image: url("notepad header.png"); font-family: "handwritten"; padding-left: 90px; font-size: 16; line-height: 22px;background-color:#3D0E21; border: 0; padding-top: 2px}
+	.emailBox{height: 44px; width: 480px; background-image: url("/static/images/notepad_header.png"); font-family: "handwritten"; padding-left: 90px; font-size: 16; line-height: 22px;background-color:#3D0E21; border: 0; padding-top: 2px}
 	.emailBodyDiv{}
-	.emailBody{height: 295px; width: 480px; font-family: "handwritten"; background-image: url("notepad body.png"); font-size: 16; padding-left: 60px; line-height: 22px; padding-top: 6px;background-color:#3D0E21; border: 0}
+	.emailBody{height: 295px; width: 480px; font-family: "handwritten"; background-image: url("/static/images/notepad_body.png"); font-size: 16; padding-left: 60px; line-height: 22px; padding-top: 6px;background-color:#3D0E21; border: 0}
 /*	input[type=image] {
-	    background-image: url("send button.png");
+	    background-image: url("/static/images/send_button.png");
 	    background-repeat: no-repeat;
 	    background-position: 50% 50%;
 	    width: 86px;
@@ -21,7 +21,7 @@
 	input[type=image]:hover,
 	input[type=image]:active,
 	input[type=image]:focus {
-	    background-image: url("send button hover.png");
+	    background-image: url("send button_hover.png");
 		}​*/
 
 </style>
@@ -47,7 +47,7 @@
 		</div>
 		<br><br>
 
-		<input type="image" src="send button.png" onMouseOver="this.src='send button hover.png'" onMouseOut="this.src='send button.png'">
+		<input type="image" src="/static/images/send_button.png" onMouseOver="this.src='/static/images/send_button_hover.png'" onMouseOut="this.src='/static/images/send_button.png'">
 
 		</form>
 	</div>
