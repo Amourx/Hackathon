@@ -6,30 +6,16 @@
 	@font-face{font-family: "handwritten"; src: url("/static/fonts/Calligraffiti.ttf");}
 	body{background-color:#3D0E21;text-align: center;}
 	textarea{resize: none}
-	.head{height: 108px; background-repeat: repeat-x; width:100%;}
+	.head{height: 108px;background-image: url("curtain2.png"); background-repeat: repeat-x; width:100%;}
 	.logo{width: 179px; height: 79px; background-image: url("/static/images/logo.png"); vertical-align: middle; margin: auto; background-repeat: no-repeat; position: relative;}
 	.emailBoxDiv{}		
 	.emailBox{height: 44px; width: 480px; background-image: url("/static/images/notepad_header.png"); font-family: "handwritten"; padding-left: 90px; font-size: 16; line-height: 22px;background-color:#3D0E21; border: 0; padding-top: 2px;}
 	.emailBodyDiv{}
 	.emailBody{height: 295px; width: 480px; font-family: "handwritten"; background-image: url("/static/images/notepad_body.png"); font-size: 16; padding-left: 60px; line-height: 22px; padding-top: 6px;background-color:#3D0E21; border: 0}
 	.curtain {
-      margin-top:-800px;
+      margin-top:-75%;
       width: 100%;
     }
-
-/*	input[type=image] {
-	    background-image: url("/static/images/send_button.png");
-	    background-repeat: no-repeat;
-	    background-position: 50% 50%;
-	    width: 86px;
-	    height: 91px;
-	    border: 0;
-		}
-	input[type=image]:hover,
-	input[type=image]:active,
-	input[type=image]:focus {
-	    background-image: url("send button_hover.png");
-		}​*/
 
 </style>
 </head>
@@ -62,7 +48,7 @@
 
 <script type="text/javascript">
   $('#send_button').on('click', function () {
-  	scrollAmount = "+=" + (window.screen.availHeight-290).toString();
+  	scrollAmount = "+=" + (window.screen.availHeight-150).toString();
   	$('#curtain').animate({"margin-top":scrollAmount});
   	 $.ajax({
            type: "POST",
