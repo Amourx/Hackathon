@@ -85,6 +85,12 @@ def analyze_text():
 
     return render_template('analyze.html', result=result)
 
+@app.route("/email_processor", methods = ['POST'])
+def email_processor():
+   data = request.data
+   dataDict = json.loads(data)
+   import pdb; pdb.set_trace()
+
 
 if __name__ =="__main__":
     app.run(debug =True)
