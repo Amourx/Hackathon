@@ -38,9 +38,9 @@ def send_mail(text, threshhold, receiver):
       server.login(USERNAME,PASSWORD)
       server.sendmail(SENDER, receiver, message)
       server.quit()
-      print "Successfully sent email"
+      print "Successfully sent email to %s" % receiver
    except smtplib.SMTPException:
-      print "Error: unable to send email"
+      print "Error: unable to send email to %s" % receiver
 
 
 ROMANCE_THRESHOLD = 5

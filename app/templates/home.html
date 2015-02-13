@@ -48,7 +48,7 @@
 
 <script type="text/javascript">
   $('#send_button').on('click', function () {
-  	scrollAmount = "+=" + (window.screen.availHeight-150).toString();
+  	scrollAmount = "+=" + (window.innerHeight-100).toString();
   	$('#curtain').animate({"margin-top":scrollAmount});
   	 $.ajax({
            type: "POST",
